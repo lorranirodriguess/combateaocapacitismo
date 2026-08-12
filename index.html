@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site educativo e acessível sobre como identificar e combater o capacitismo na prática. Conheça leis, mitos, verdades e dimensões do capacitismo.">
+  <title>Capacitismo na Prática — Como identificar e como combater</title>
+  
+  <!-- Fontes do Google: Atkinson Hyperlegible e Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Fonte OpenDyslexic via CDN para recurso de acessibilidade -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/open-dyslexic.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Link de atalho / Skip Link para leitores de tela e navegação por teclado -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- HEADER DE TRÊS DIVS FIXO -->
+  <header class="header-fixo">
+    
+    <!-- 3.1 div.barra-acessibilidade -->
+    <div class="barra-acessibilidade">
+      <div class="container-barra">
+        <span class="titulo-barra">Acessibilidade</span>
+        <div class="grupo-botoes-fonte">
+          <button id="btn-fonte-menos" aria-label="Diminuir tamanho da fonte">A-</button>
+          <button id="btn-fonte-reset" aria-label="Resetar tamanho da fonte para o padrão">A</button>
+          <button id="btn-fonte-mais" aria-label="Aumentar tamanho da fonte">A+</button>
+        </div>
+        <button id="btn-espacamento" aria-pressed="false" aria-label="Alternar espaçamento ampliado do texto">Espaçamento</button>
+        <button id="btn-dislexia" aria-pressed="false" aria-label="Alternar fonte para dislexia OpenDyslexic">Fonte Dislexia</button>
+        <button id="btn-contraste" aria-pressed="false" aria-label="Alternar modo de alto contraste">Alto Contraste</button>
+      </div>
+    </div>
+
+    <!-- 3.2 div.identidade -->
+    <div class="identidade">
+      <div class="container-identidade">
+        <a href="#inicio" class="logo-link" aria-label="Voltar ao início da página">
+          <img src="/img/logo.png" alt="Logotipo Capacitismo na Prática — ilustração de pessoas ampliando vozes por um megafone, com uma pessoa em cadeira de rodas ao centro" class="logo-img">
+        </a>
+        <div class="titulos-identidade">
+          <h1>Capacitismo na Prática</h1>
+          <p class="subtitulo">Como identificar e como combater</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 div.navegacao -->
+    <div class="navegacao">
+      <div class="container-nav">
+        <button class="btn-menu-mobile" id="btn-menu-mobile" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu de navegação">
+          <span class="icone-hamburguer" aria-hidden="true"></span>
+          <span>Menu</span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegação principal">
+          <ul class="nav-lista">
+            <li class="nav-item dropdown">
+              <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                História <span class="seta" aria-hidden="true">▾</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#o-que-e" class="nav-link">O que é?</a></li>
+                <li><a href="#dimensoes" class="nav-link">Dimensões</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                Identificando <span class="seta" aria-hidden="true">▾</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#mitos" class="nav-link">Mitos × Verdades</a></li>
+                <li><a href="#leis" class="nav-link">Leis & Direitos</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#combate" class="nav-link">Combate</a>
+            </li>
+            <li class="nav-item">
+              <a href="#ver-mais" class="nav-link">Aprofunde-se</a>
+            </li>
+            <li class="nav-item">
+              <a href="#referencias" class="nav-link">Referências</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MAIN CONTEÚDO PRINCIPAL -->
+  <main id="conteudo">
+
+    <!-- 4.1 HERO / INÍCIO -->
+    <section id="inicio" class="section-hero">
+      <div class="container">
+        <p class="eyebrow">Conscientização e Ação Social</p>
+        <h2 class="hero-titulo">A deficiência não está na pessoa, mas nas barreiras criadas pela sociedade.</h2>
+        <p class="section-lede">
+          A inclusão plena só acontece quando desconstruímos preconceitos estruturais e eliminamos as barreiras atitudinais, físicas, comunicacionais e digitais no dia a dia.
+        </p>
+
+        <div class="estatisticas-grid">
+          <div class="card-estatistica">
+            <span class="numero-destaque">Art. 4º</span>
+            <p class="legenda">Toda pessoa com deficiência tem direito à igualdade de oportunidades e não sofrerá nenhuma espécie de discriminação (Lei 13.146/2015).</p>
+          </div>
+          <div class="card-estatistica">
+            <span class="numero-destaque">1 a 3 anos</span>
+            <p class="legenda">Pena de reclusão e multa previstas no Art. 88 da LBI para quem praticar, induzir ou incitar discriminação contra pessoa por sua deficiência.</p>
+          </div>
+          <div class="card-estatistica">
+            <span class="numero-destaque">100%</span>
+            <p class="legenda">Responsabilidade coletiva. Reduzir barreiras é compromisso ético e legal de toda a sociedade.</p>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#o-que-e" class="btn btn-primario">Como identificar</a>
+          <a href="#combate" class="btn btn-destaque">Como combater</a>
+        </div>
+
+        <figure class="img-placeholder" data-slot="hero-banner">
+          <div class="img-placeholder" role="img" aria-label="Espaço reservado para imagem: Ilustração colorida de pessoas diversas com e sem deficiência colaborando em comunidade">
+            <img class="img-placeholder-box" src="/img/img1.png" alt="Ilustração colorida de pessoas diversas com e sem deficiência colaborando em comunidade" class="img-hero">
+            <p class="descricao-imagem">Descrição da imagem: Ilustração colorida de pessoas diversas com e sem deficiência colaborando em comunidade.</p>
+          </div>
+          <figcaption>A diversidade humana enriquece a convivência em sociedade.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4.2 O QUE É CAPACITISMO -->
+    <section id="o-que-e" class="section-conteudo">
+      <div class="container">
+        <h2>O que é Capacitismo?</h2>
+        <p class="section-lede">
+          Conceito, definição legal e formas como o preconceito se manifesta nas relações cotidianas.
+        </p>
+
+        <div class="grid-dois-colunas">
+          <div class="texto-bloco">
+            <p>
+              O <strong>capacitismo</strong> reproduz crenças, processos e práticas que normatizam um certo padrão corporal e mental como "perfeito" ou "típico", inferiorizando ou excluindo pessoas que não se enquadram nesse padrão.
+            </p>
+            <blockquote class="citacao-lei">
+              <p><strong>"Considera-se discriminação em razão da deficiência toda forma de distinção, restrição ou exclusão, por ação ou omissão, que tenha o propósito ou o efeito de prejudicar, impedir ou anular o reconhecimento ou o exercício dos direitos e das liberdades fundamentais..."</strong></p>
+              <cite>— Lei Brasileira de Inclusão (Lei nº 13.146/2015, Art. 4º, § 1º)</cite>
+            </blockquote>
+            <p>
+              A deficiência é um <strong>produto social</strong>: ela resulta do encontro de determinados corpos ou mentes com barreiras atitudinais e ambientais que impedem sua participação plena.
+            </p>
+          </div>
+
+          <figure class="img-placeholder" data-slot="o-que-e-ilustracao">
+            <div class="img-placeholder" role="img" aria-label="Espaço reservado para imagem: Infográfico sobre o conceito de capacitismo e a Lei 13.146">
+              <img class="img-placeholder-box" src="img/charge1.png" alt="Charge ilustrando situações de capacitismo">
+              <figcaption>Charge de 1981 de Ricardo Ferraz.</figcaption>
+              <p class="descricao-imagem">
+                Descrição da imagem: Ilustração em preto e branco mostra uma pessoa em cadeira de rodas diante
+                da palavra gigante “NÃO”. A cena representa as barreiras e limitações impostas às pessoas com
+                deficiência, destacando a importância da inclusão e da acessibilidade.
+              </p>
+
+            </div>
+          </figure>
+        </div>
+
+        <h3>Como o capacitismo se manifesta:</h3>
+        <div class="manifestacoes-grid">
+          <article class="card-manifestacao">
+            <span class="icone" aria-hidden="true">🗣️</span>
+            <h4>Atitudes &amp; Linguagem</h4>
+            <p>Uso de termos pejorativos, metáforas capacitistas (ex.: "fazer-se de cego"), diminutivos ou tom de voz infantilizado.</p>
+          </article>
+          <article class="card-manifestacao">
+            <span class="icone" aria-hidden="true">🏛️</span>
+            <h4>Estruturas Físicas</h4>
+            <p>Falta de rampas, elevadores quebrados, calçadas esburacadas e ausência de sinalização tátil/sonora.</p>
+          </article>
+          <article class="card-manifestacao">
+            <span class="icone" aria-hidden="true">💻</span>
+            <h4>Barreiras Digitais</h4>
+            <p>Sites inacessíveis para leitores de tela, vídeos sem legenda ou Libras e falta de descrições de imagens.</p>
+          </article>
+          <article class="card-manifestacao">
+            <span class="icone" aria-hidden="true">🏢</span>
+            <h4>Institucional</h4>
+            <p>Pressuposição de incapacidade no trabalho, ausência de materiais em formatos acessíveis e recusa de adaptações razoáveis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.3 DIMENSÕES DE IMPACTO -->
+    <section id="dimensoes" class="section-conteudo bg-suave">
+      <div class="container">
+        <h2>As 6 Dimensões de Impacto do Capacitismo</h2>
+        <p class="section-lede">
+          O capacitismo afeta a vida de pessoas com deficiência em múltiplos níveis sociais e individuais.
+        </p>
+
+        <div class="dimensoes-grid">
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">👥</span>
+            <h3>Social</h3>
+            <p>Gera exclusão, isolamento, estigmas e dificulta o estabelecimento de relações interpessoais e comunitárias em pé de igualdade.</p>
+          </article>
+
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">🧠</span>
+            <h3>Psicológica</h3>
+            <p>Provoca sofrimento emocional, ansiedade e baixa autoimagem causados pela constante invalidação e pressuposição de incapacidade.</p>
+          </article>
+
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">🎓</span>
+            <h3>Educacional</h3>
+            <p>Limita o acesso, a permanência e o pleno aprendizado em instituições de ensino que recusam apoio adaptado ou Linguagem Simples.</p>
+          </article>
+
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">💼</span>
+            <h3>Profissional</h3>
+            <p>Cria barreiras em seleções de emprego, restringe o crescimento na carreira e reforça visões assistencialistas no mercado.</p>
+          </article>
+
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">🏗️</span>
+            <h3>Arquitetônica</h3>
+            <p>Ambientes sem acessibilidade física impedem o direito fundamental de ir e vir, segregando a utilização dos espaços públicos.</p>
+          </article>
+
+          <article class="card-dimensao">
+            <span class="icone" aria-hidden="true">🌐</span>
+            <h3>Digital</h3>
+            <p>Sistemas e páginas sem padrões de acessibilidade web privam o acesso à informação, serviços públicos e comunicação.</p>
+          </article>
+        </div>
+
+        <figure class="img-placeholder" data-slot="dimensoes-painel">
+          <div class="img-placeholder" role="img" aria-label="Espaço reservado para imagem: Ilustração mostrando as diferentes dimensões da vida em comunidade com acessibilidade">
+            <img src="img/charge2.png" alt="ilustração com situação de preconceito e discriminação" class="img-placeholder-box">
+            <figcaption>Charge de Ricardo Ferraz.</figcaption>
+            <p class="descricao-imagem">
+               Descrição da imagem: Charge em dois quadrinhos. No primeiro, um homem em cadeira de rodas, segurando um diploma, 
+               é recebido por um funcionário que lhe oferece um trabalho na guarita do estacionamento. Ele explica que possui
+               doutorado em Economia. No segundo, o funcionário afirma ter cumprido a lei de cotas e exige que ele demonstre sua 
+               eficiência. Enquanto outras pessoas sobem uma escada, o homem em cadeira de rodas permanece no início dela, 
+               evidenciando as barreiras físicas e sociais à inclusão..</p>
+          </div>
+          <figcaption>A acessibilidade em todas as dimensões assegura a cidadania plena.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4.4 MITOS X VERDADES -->
+    <section id="mitos" class="section-conteudo">
+      <div class="container">
+        <h2>Mitos × Verdades</h2>
+        <p class="section-lede">
+          Desconstruindo ideias equivocadas do senso comum sobre as pessoas com deficiência.
+        </p>
+
+        <figure class="img-placeholder" data-slot="mitos-topo">
+          <div class="img-placeholder" role="img" aria-label="Espaço reservado para imagem: Ilustração comparativa de diálogos e comportamentos do cotidiano">
+            <img src="img/charge3.png" alt="ilustração com situação de preconceito e discriminação" class="img-placeholder-box">
+            <figcaption>Charge de Ricardo Ferraz.</figcaption>
+            <p class="descricao-imagem">
+              Descrição da imagem: No centro da ilustração uma mulher com deficiência física (sem os dois braços e as duas pernas) está digitando no computador com a boca. Ao lado dela duas mulheres 
+              e dois homens sem deficiência comentam: – “Incrível”; -”Parece milagre!”; -”É inacreditável o que estou vendo!”; -”Pensei que ela não seria capaz para tal tarefa!”. A mulher 
+              com deficiência pensa alto: -”Um dia eles vão se acostumar que não somos ET”.
+            </p>          
+          </div>
+          <figcaption>Mudar a perspectiva do olhar é o primeiro passo para combater o preconceito.</figcaption>
+        </figure>
+
+        <div class="mitos-lista">
+          
+          <div class="par-mito-verdade">
+            <div class="bloco-mito">
+              <span class="badge badge-mito"><span aria-hidden="true">✕</span> MITO</span>
+              <p>Pessoas com deficiência são exemplos de "superação" ou "anjos inspiradores" por realizarem tarefas do dia a dia.</p>
+            </div>
+            <div class="bloco-verdade">
+              <span class="badge badge-verdade"><span aria-hidden="true">✓</span> VERDADE</span>
+              <p>Pessoas com deficiência são plurais e diversas. Usá-las como inspiração apaga as violações de direitos que elas enfrentam diariamente.</p>
+            </div>
+          </div>
+
+          <div class="par-mito-verdade">
+            <div class="bloco-mito">
+              <span class="badge badge-mito"><span aria-hidden="true">✕</span> MITO</span>
+              <p>Toda deficiência é aparente ou visível à primeira vista.</p>
+            </div>
+            <div class="bloco-verdade">
+              <span class="badge badge-verdade"><span aria-hidden="true">✓</span> VERDADE</span>
+              <p>Existem deficiências invisíveis e neurodivergências (como autismo, deficiências auditivas ou dores crônicas). Nunca invalide a condição de alguém.</p>
+            </div>
+          </div>
+
+          <div class="par-mito-verdade">
+            <div class="bloco-mito">
+              <span class="badge badge-mito"><span aria-hidden="true">✕</span> MITO</span>
+              <p>Acessibilidade é um favor, benfeitoria ou ato de caridade.</p>
+            </div>
+            <div class="bloco-verdade">
+              <span class="badge badge-verdade"><span aria-hidden="true">✓</span> VERDADE</span>
+              <p>Acessibilidade e adaptações razoáveis são direitos fundamentais garantidos por legislação nacional e internacional.</p>
+            </div>
+          </div>
+
+          <div class="par-mito-verdade">
+            <div class="bloco-mito">
+              <span class="badge badge-mito"><span aria-hidden="true">✕</span> MITO</span>
+              <p>É melhor falar com o acompanhante para evitar que a pessoa com deficiência não entenda.</p>
+            </div>
+            <div class="bloco-verdade">
+              <span class="badge badge-verdade"><span aria-hidden="true">✓</span> VERDADE</span>
+              <p>Sempre dirija-se diretamente à pessoa com deficiência. Respeite sua autonomia e protagonismo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.4 LEIS E DIREITOS -->
+    <section id="leis" class="section-conteudo bg-suave">
+      <div class="container">
+        <h2>Marcos Legais e Direitos Garantidos</h2>
+        <p class="section-lede">
+          Conheça a evolução das principais legislações brasileiras que protegem e garantem os direitos das pessoas com deficiência.
+        </p>
+
+        <figure class="img-placeholder" data-slot="leis-icone">
+          <div class="img-placeholder" role="img" aria-label="Espaço reservado para imagem: Ilustração simbolizando a justiça, leis e inclusão social">
+            <img src="img/img2.png" alt="Ilustração de união de pessoas diversas." class="img-placeholder-box">
+            <p class="descricao-imagem">
+              Descrição da imagem: Ilustração colorida mostra um grupo diverso de pessoas reunidas e sorrindo. Entre elas, há pessoas com diferentes características
+               e deficiências, incluindo uma pessoa em cadeira de rodas, uma pessoa utilizando muletas e outra utilizando uma bengala branca. A composição 
+               transmite uma ideia de diversidade, inclusão, respeito e convivência, destacando que pessoas com diferentes características e necessidades 
+               fazem parte da sociedade.
+              </p>
+          </div>
+          <figcaption>A legislação assegura a obrigatoriedade da eliminação de barreiras.</figcaption>
+        </figure>
+
+        <!-- Linha do Tempo acessível com elementos <details> nativos -->
+        <div class="linha-do-tempo">
+          
+          <details class="item-timeline">
+            <summary><span class="ano">1988</span> — Constituição Federal do Brasil</summary>
+            <div class="conteudo-timeline">
+              <p>Estabeleceu a dignidade da pessoa humana como fundamento da República e garantiu a proibição de qualquer forma de discriminação, incluindo a reserva de vagas em cargos públicos.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline">
+            <summary><span class="ano">1989</span> — Lei Federal nº 7.853</summary>
+            <div class="conteudo-timeline">
+              <p>Dispõe sobre o apoio às pessoas com deficiência, sua integração social, e define como crime a recusa sem justa causa de inscrição escolar ou emprego por motivo de deficiência.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline">
+            <summary><span class="ano">1991</span> — Lei de Cotas (Lei nº 8.213)</summary>
+            <div class="conteudo-timeline">
+              <p>Obrigou empresas com 100 ou mais empregados a preencherem de 2% a 5% dos seus cargos com beneficiários reabilitados ou pessoas com deficiência habilitadas.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline">
+            <summary><span class="ano">2000</span> — Leis de Acessibilidade (Lei 10.048 e Lei 10.098)</summary>
+            <div class="conteudo-timeline">
+              <p>Estabeleceram normas gerais e critérios básicos para a promoção da acessibilidade de pessoas com deficiência ou mobilidade reduzida nas vias, edifícios e meios de transporte.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline">
+            <summary><span class="ano">2002</span> — Lei da Libras (Lei nº 10.436)</summary>
+            <div class="conteudo-timeline">
+              <p>Reconheceu a Língua Brasileira de Sinais (Libras) como meio legal de comunicação e expressão, garantindo seu apoio nos serviços públicos e na educação.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline">
+            <summary><span class="ano">2008/2009</span> — Convenção da ONU sobre Direitos PCD (Decreto nº 6.949/2009)</summary>
+            <div class="conteudo-timeline">
+              <p>Aprovada com status equivalente a Emenda Constitucional no Brasil, consolidou o Modelo Social da Deficiência internacionalmente.</p>
+            </div>
+          </details>
+
+          <details class="item-timeline" open>
+            <summary><span class="ano">2015</span> — Lei Brasileira de Inclusão / LBI (Lei nº 13.146)</summary>
+            <div class="conteudo-timeline">
+              <p>Estatuto da Pessoa com Deficiência. Consolida direitos na saúde, educação, trabalho, moradia e prevê punição criminal penal para atos capacitistas de discriminação (Art. 88).</p>
+            </div>
+          </details>
+
+        </div>
+
+        <div class="caixa-destaque-direitos">
+          <h3>Direitos Garantidos por Lei:</h3>
+          <ul class="lista-checada">
+            <li>Direito ao trabalho sem discriminação em processos seletivos.</li>
+            <li>Acesso a atendimento prioritário e comunicação em formatos acessíveis (Libras, áudio, braille, Linguagem Simples).</li>
+            <li>Direito ao atendimento em saúde focado no indivíduo, sem infantilização.</li>
+            <li>Atendimento educacional especializado e proibição de taxas extras por alunos com deficiência em escolas privadas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 COMO COMBATER -->
+    <section id="combate" class="section-conteudo">
+      <div class="container">
+        <h2>Como Combater o Capacitismo: Guia Prático</h2>
+        <p class="section-lede">
+          Passos e atitudes ativas para eliminar atitudes preconceituosas na sua rotina diária.
+        </p>
+
+        <div class="passos-combate-grid">
+          
+          <article class="card-passo">
+            <span class="numero-passo">1</span>
+            <h3>Informe-se e Aprenda</h3>
+            <p>Busque referências criadas por pessoas com deficiência. Entenda a deficiência como uma característica, não um fardo ou tragédia.</p>
+          </article>
+
+          <article class="card-passo">
+            <span class="numero-passo">2</span>
+            <h3>Escute e Dê Protagonismo</h3>
+            <p>Dirija sua fala à pessoa, não ao acompanhante. Não presuma incapacidades nem interrompa quem está se comunicando.</p>
+          </article>
+
+          <article class="card-passo">
+            <span class="numero-passo">3</span>
+            <h3>Respeite a Autonomia</h3>
+            <p>Sempre pergunte se a pessoa precisa de ajuda antes de agir. Se a oferta for recusada, respeite a decisão sem insistir.</p>
+          </article>
+
+          <article class="card-passo">
+            <span class="numero-passo">4</span>
+            <h3>Elimine Expressões Capacitistas</h3>
+            <p>Remova expressões como "deu mancada", "se fazer de cego" ou "dar uma de João sem braço" do seu vocabulário. Substitua por termos neutros.</p>
+          </article>
+
+          <article class="card-passo">
+            <span class="numero-passo">5</span>
+            <h3>Promova Acessibilidade Ativa</h3>
+            <p>Cobrem acessibilidade física nos locais que você frequenta e crie conteúdos digitais acessíveis (textos alternativos, legendas e alto contraste).</p>
+          </article>
+
+          <article class="card-passo">
+            <span class="numero-passo">6</span>
+            <h3>Eduque Crianças Anticapacitistas</h3>
+            <p>Promova o convívio, não ignore curiosidades e explique a diversidade de formas de estar no mundo sem criar estigmas.</p>
+          </article>
+
+        </div>
+
+        <!-- Tabela Guia do Vocabulário baseada no Guia da Fiocruz -->
+        <div class="tabela-wrapper">
+          <h3>Guia Rápido de Substituição de Termos</h3>
+          <table class="tabela-vocabulario">
+            <caption>Substituição de expressões capacitistas do dia a dia por termos adequados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Evite / Inadequado ✕</th>
+                <th scope="col">Prefira / Correto ✓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Se fazer de surdo / cego</td>
+                <td>Parece que não ouviu / não percebeu algo</td>
+              </tr>
+              <tr>
+                <td>Deu mancada</td>
+                <td>Faltou com o compromisso / errou</td>
+              </tr>
+              <tr>
+                <td>Dar uma de João sem braço</td>
+                <td>Fugir das obrigações</td>
+              </tr>
+              <tr>
+                <td>Pessoa portadora de deficiência / especial</td>
+                <td><strong>Pessoa com deficiência</strong></td>
+              </tr>
+              <tr>
+                <td>Nem parece que tem deficiência</td>
+                <td>Pessoas são diversas em suas características</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="banner-frase-final">
+          <p>Lembre-se: a deficiência não define o potencial de ninguém. A inclusão é uma responsabilidade coletiva.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.6 VER MAIS / APROFUNDE-SE -->
+    <section id="ver-mais" class="section-conteudo bg-suave">
+      <div class="container">
+        <h2>Aprofunde-se / Conteúdos Externos</h2>
+        <p class="section-lede">
+          Explore podcasts, vídeos e leituras complementares para continuar aprendendo sobre diversidade e anticapacitismo.
+        </p>
+
+        <div class="colunas-recursos">
+          
+          <!-- Podcasts -->
+          <div class="coluna-recurso">
+            <h3>Podcasts 🎙️</h3>
+            <ul class="lista-cartoes-link">
+              <!-- Adicionar novo podcast aqui -->
+              <li>
+                <a href="https://open.spotify.com/episode/6N133GKwXieJzKjCrsW3l4?si=XpNJsZ5VSVWQ9B95M5QFPQ" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>Podcast PodProsperar </h4>
+                  <p class="meta">Episódio: Anticapacitismo e Inclusão: Da Matrícula à Aprendizagem • 1h</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://open.spotify.com/episode/5CxoQ5zxIsGOd4y7EkZzG6?si=tAXZzW63SNuxwyGEuA9uNg" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>Podcast Levo na Bolsa</h4>
+                  <p class="meta">Episódio 003: Anticapacitismo • 55min</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Vídeos -->
+          <div class="coluna-recurso">
+            <h3>Vídeos Informativos 🎥</h3>
+            <ul class="lista-cartoes-link">
+              <!-- Adicionar novo vídeo aqui -->
+              <li>
+                <a href="https://youtu.be/mw7Z--CT1WQ?si=LcH6h8tDwvoCViYn" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>O que é o Capacitismo?</h4>
+                  <p class="meta">Associação Salvador • 1min15seg</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@terra_nos/video/7146622748327038214?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>Capacitismo.</h4>
+                  <p class="meta">Terra_nos • 1min25seg</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Leitura Complementar -->
+          <div class="coluna-recurso">
+            <h3>Leitura Complementar 📚</h3>
+            <ul class="lista-cartoes-link">
+              <!-- Adicionar nova leitura aqui -->
+              <li>
+                <a href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>Texto Integral da Lei nº 13.146/2015 (LBI)</h4>
+                  <p class="meta">Portal da Legislação — Presidência da República</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tce.sp.gov.br/observatorio/guia-combate-ao-capacitismo" target="_blank" rel="noopener noreferrer" class="cartao-link-externo">
+                  <h4>Guia de Combate ao Capacitismo</h4>
+                  <p class="meta">Documento orientador para o respeito à diversidade</p>
+                  <span class="tag-externo">Abre em nova aba <span aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.7 REFERÊNCIAS -->
+    <section id="referencias" class="section-conteudo">
+      <div class="container">
+        <h2>Referências e Fontes</h2>
+        <p class="section-lede">
+          Fontes oficiais e acadêmicas utilizadas na elaboração deste material informativo.
+        </p>
+
+        <ul class="resource-list">
+          <li>
+            <strong>BRASIL.</strong> Lei nº 13.146, de 6 de julho de 2015. Institui a Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência).
+          </li>
+          <li>
+            <strong>FIOCRUZ / MINISTÉRIO DA SAÚDE.</strong> Guia "Combata o Capacitismo": Orientações para o respeito à diversidade humana. Elaboração: Laís Silveira Costa et al. Ensp/Fiocruz, 2023.
+          </li>
+          <li>
+            <strong>ORGANIZAÇÃO DAS NAÇÕES UNIDAS (ONU).</strong> Convenção sobre os Direitos das Pessoas com Deficiência. Promulgada no Brasil pelo Decreto nº 6.949/2009.
+          </li>
+          <li>
+            <strong>CAMPBELL, Fiona Kumari.</strong> Inciting Legal Fictions: Disability's date with ontology. 2001.
+          </li>
+        </ul>
+        <p class="nota-referencia"><em>Nota: Novos artigos, pesquisas e materiais podem ser adicionados a este acervo continuamente.</em></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 5. ESTRUTURA DO FOOTER -->
+  <footer class="rodape">
+    <div class="container container-footer">
+      <div class="bloco-footer-info">
+        <p><strong>Capacitismo na Prática</strong></p>
+        <p>Projeto independente de caráter estritamente educacional e informativo. Livre para compartilhamento.</p>
+        <p><small>Desenvolvido com foco em acessibilidade digital (Atkinson Hyperlegible, opção OpenDyslexic, alto contraste e suporte a navegadores com zoom).</small></p>
+      </div>
+
+      <div class="bloco-footer-links">
+        <p><strong>Navegação</strong></p>
+        <ul class="mini-mapa">
+          <li><a href="#o-que-e">O que é capacitismo</a></li>
+          <li><a href="#dimensoes">Dimensões</a></li>
+          <li><a href="#mitos">Mitos × Verdades</a></li>
+          <li><a href="#leis">Leis e Direitos</a></li>
+          <li><a href="#combate">Como combater</a></li>
+        </ul>
+      </div>
+
+      <div class="bloco-footer-contato">
+        <p><strong>Contato &amp; Créditos</strong></p>
+        <p>E-mail: <a href="mailto:contato@capacitismonapratica.org">contato@capacitismonapratica.org</a></p>
+        <p><a href="#inicio" class="btn-voltar-topo">↑ Voltar ao topo</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
