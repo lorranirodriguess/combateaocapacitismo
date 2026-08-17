@@ -193,7 +193,7 @@ body.alto-contraste .barra-acessibilidade {
 }
 
 body.alto-contraste .barra-acessibilidade button {
-  color: #FFFF00;
+  color: #9c9b7c;
   border-color: #FFFF00;
 }
 
@@ -402,16 +402,16 @@ body.alto-contraste .hero-titulo {
 
 .btn-primario {
   background-color: var(--cor-primaria);
-  color: #FFFFFF;
+  color: #000000;
 }
 
 .btn-primario:hover {
-  background-color: var(--cor-primaria-escura);
+  filter: brightness(0.9);
 }
 
 .btn-destaque {
   background-color: var(--cor-destaque);
-  color: #FFFFFF;
+  color: #050000;
 }
 
 .btn-destaque:hover {
