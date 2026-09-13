@@ -197,6 +197,32 @@ body.alto-contraste .barra-acessibilidade button {
   border-color: #FFFF00;
 }
 
+/* Botão de Autodescrição (leitura em voz alta) */
+.barra-acessibilidade button#btn-autodescricao.lendo {
+  background: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+  color: #FFFFFF;
+  font-weight: bold;
+  animation: pulso-autodescricao 1.2s ease-in-out infinite;
+}
+
+body.alto-contraste .barra-acessibilidade button#btn-autodescricao.lendo {
+  background: #FFFF00;
+  border-color: #FFFF00;
+  color: #000000;
+}
+
+@keyframes pulso-autodescricao {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barra-acessibilidade button#btn-autodescricao.lendo {
+    animation: none;
+  }
+}
+
 /* 3.2 div.identidade */
 .identidade {
   background-color: var(--cor-fundo);
@@ -678,6 +704,67 @@ body.alto-contraste .caixa-destaque-direitos {
   line-height: 36px;
   font-weight: bold;
   font-family: var(--fonte-titulo);
+}
+
+/* Canais de Denúncia */
+.canais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card-canal {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-top: 5px solid var(--cor-primaria);
+  padding: 1.5rem;
+  border-radius: var(--borda-raio);
+  box-shadow: var(--sombra-suave);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-canal h3 {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria-escura);
+  margin-bottom: 0.5rem;
+}
+
+body.alto-contraste .card-canal h3 {
+  color: var(--cor-primaria);
+}
+
+.card-canal .icone {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card-canal p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.btn-canal {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 18px;
+  background-color: var(--cor-primaria);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-canal:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+body.alto-contraste .btn-canal {
+  background-color: #FFFF00;
+  color: #000000;
 }
 
 /* Tabela de Vocabulário */

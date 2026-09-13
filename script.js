@@ -110,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const secoes = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  // Guarda qual seção está ativa no momento, usada também pelo modo Autodescrição
+  let secaoAtivaId = secoes.length ? secoes[0].getAttribute('id') : null;
+
   const observerOptions = {
     root: null,
     rootMargin: '-20% 0px -70% 0px',
@@ -120,6 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const idAtivo = entry.target.getAttribute('id');
+
+        // Se a leitura em voz alta estiver ativa e o usuário mudar de seção,
+        // interrompe para não continuar narrando um trecho que saiu de foco
+        if (idAtivo !== secaoAtivaId && 'speechSynthesis' in window && window.speechSynthesis.speaking) {
+          window.speechSynthesis.cancel();
+        }
+
+        secaoAtivaId = idAtivo;
 
         navLinks.forEach(link => {
           const href = link.getAttribute('href').replace('#', '');
@@ -134,4 +145,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   secoes.forEach(secao => observer.observe(secao));
+
+  /* ==========================================================================
+     5. MODO AUTODESCRIÇÃO (LEITURA EM VOZ ALTA DA SEÇÃO ATUAL)
+     ========================================================================== */
+  const btnAutodescricao = document.getElementById('btn-autodescricao');
+
+  if (btnAutodescricao) {
+    if (!('speechSynthesis' in window)) {
+      // Navegador sem suporte à Web Speech API: oculta o botão em vez de oferecer algo quebrado
+      btnAutodescricao.hidden = true;
+    } else {
+      const textoAutodescricao = btnAutodescricao.querySelector('.texto-autodescricao');
+      const ROTULO_OUVIR = 'Ouvir Seção';
+      const ROTULO_PARAR = 'Parar Leitura';
+
+      function pararLeitura() {
+        window.speechSynthesis.cancel();
+        btnAutodescricao.setAttribute('aria-pressed', 'false');
+        btnAutodescricao.setAttribute('aria-label', 'Ouvir a seção atual em voz alta');
+        btnAutodescricao.classList.remove('lendo');
+        if (textoAutodescricao) textoAutodescricao.textContent = ROTULO_OUVIR;
+      }
+
+      btnAutodescricao.addEventListener('click', () => {
+        // Se já está lendo, o clique funciona como "parar"
+        if (window.speechSynthesis.speaking) {
+          pararLeitura();
+          return;
+        }
+
+        const secaoAtual = secaoAtivaId ? document.getElementById(secaoAtivaId) : null;
+        if (!secaoAtual) return;
+
+        const texto = secaoAtual.innerText.replace(/\s+/g, ' ').trim();
+        if (!texto) return;
+
+        // Garante que não haja fala anterior enfileirada antes de começar
+        window.speechSynthesis.cancel();
+
+        const fala = new SpeechSynthesisUtterance(texto);
+        fala.lang = 'pt-BR';
+
+        fala.addEventListener('end', pararLeitura);
+        fala.addEventListener('error', pararLeitura);
+
+        window.speechSynthesis.speak(fala);
+        btnAutodescricao.setAttribute('aria-pressed', 'true');
+        btnAutodescricao.setAttribute('aria-label', 'Parar a leitura em voz alta');
+        btnAutodescricao.classList.add('lendo');
+        if (textoAutodescricao) textoAutodescricao.textContent = ROTULO_PARAR;
+      });
+
+      // Interrompe a leitura se a pessoa sair da página/aba
+      window.addEventListener('beforeunload', () => window.speechSynthesis.cancel());
+    }
+  }
 });
