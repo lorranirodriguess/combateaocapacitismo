@@ -680,67 +680,6 @@ body.alto-contraste .caixa-destaque-direitos {
   font-family: var(--fonte-titulo);
 }
 
-/* Canais de Denúncia */
-.canais-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.card-canal {
-  background: var(--cor-fundo-card);
-  border: 1px solid var(--cor-borda);
-  border-top: 5px solid var(--cor-primaria);
-  padding: 1.5rem;
-  border-radius: var(--borda-raio);
-  box-shadow: var(--sombra-suave);
-  display: flex;
-  flex-direction: column;
-}
-
-.card-canal h3 {
-  font-family: var(--fonte-titulo);
-  color: var(--cor-primaria-escura);
-  margin-bottom: 0.5rem;
-}
-
-body.alto-contraste .card-canal h3 {
-  color: var(--cor-primaria);
-}
-
-.card-canal .icone {
-  font-size: 1.8rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.card-canal p {
-  flex-grow: 1;
-  margin-bottom: 1rem;
-}
-
-.btn-canal {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 8px 18px;
-  background-color: var(--cor-primaria);
-  color: #FFFFFF;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.btn-canal:hover {
-  background-color: var(--cor-primaria-escura);
-}
-
-body.alto-contraste .btn-canal {
-  background-color: #FFFF00;
-  color: #000000;
-}
-
 /* Tabela de Vocabulário */
 .tabela-wrapper {
   overflow-x: auto;
