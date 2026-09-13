@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuPrincipal.classList.toggle('aberto');
   });
 
-  /* ==========================================================================
+   /* ==========================================================================
      4. SCROLL-SPY COM INTERSECTIONOBSERVER
      ========================================================================== */
   const secoes = document.querySelectorAll('main section[id]');
@@ -123,13 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const idAtivo = entry.target.getAttribute('id');
-
-        // Se a leitura em voz alta estiver ativa e o usuário mudar de seção,
-        // interrompe para não continuar narrando um trecho que saiu de foco
-        if (idAtivo !== secaoAtivaId && 'speechSynthesis' in window && window.speechSynthesis.speaking) {
-          window.speechSynthesis.cancel();
-        }
-
         secaoAtivaId = idAtivo;
 
         navLinks.forEach(link => {
